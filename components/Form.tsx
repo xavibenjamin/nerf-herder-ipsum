@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import { getRandomWords, formatSentence } from '@/utils/helpers'
-import { words } from './words'
+import { words } from '@/data/words'
 
 const Form: React.FC  = () => {
   const [paragraphs, setParagraphs] = useState<string[]>([]);
@@ -65,7 +65,7 @@ const Form: React.FC  = () => {
               onClick={decrementNumParagraphs}>
               <span>−</span>
             </button>
-            <input type="number" className="text-sm w-16 font-bold h-auto outline-none ring-transparent border-0 border-transparent shadow-none focus:outline-none text-center bg-slate-800 flex items-center text-slate-400" name="paragraphs-number" value={numParagraphs}></input>
+            <input type="number" onChange={(e) => setNumParagraphs(Number(e.target.value))} className="text-sm w-16 font-bold h-auto outline-none ring-transparent border-0 border-transparent shadow-none focus:outline-none text-center bg-slate-800 flex items-center text-slate-400" name="paragraphs-number" value={numParagraphs}></input>
             <button
               onClick={incrementNumParagraphs}
               className="flex items-center justify-center text-2xl bg-slate-700 py-2 text-slate-400 hover:bg-slate-600 h-full w-20 rounded-r cursor-pointer">
